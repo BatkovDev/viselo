@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Виселица игра</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Игра -Виселица- с Игорем</h1>
+    <div id="word"></div>
+    <div id="message"></div>
+    <div id="input-container">
+        <input type="text" id="letter-input" maxlength="1" placeholder="Буква">
+        <button onclick="guessletter()">Угадать</button>
+    </div>
+    <div id="stickman">
+        <div id="head" style="display: none;"></div>
+        <div id="body" style="display: none;"></div>
+        <div id="left-arm" style="display: none;"></div>
+        <div id="right-arm" style="display: none;"></div>
+        <div id="left-leg" style="display: none;"></div>
+        <div id="right-leg" style="display: none;"></div>
+    </div>
+
+    <script>
+        const words = [
+            'меч',
+            'рука',
+            'человек',
+            'мальчик',
+            'аниме',
+            'фильм',
+            'прибор',
+            'кино',
+            'сериал',
+            'кальмар',
+            'мастер',
+            'учеба',
+            'корабль',
+            'пастух',
+            'ручка',
+            'питомец',
+            'кошка',
+            'кот',
+            'собака',
+        ];
+        const word = words[Math.floor(Math.random() * words.length)];
+        const arra = word.split('');
+        const gs_letters = [];
+        let remainingAttempts = 6;
+
+        function guessletter() {
+            const input = document.getElementById('letter-input');
+            const letter = input.value.toLowerCase();
+            input.value = '';
+            input.focus();
+
+            if (!letter || gs_letters.includes(letter)) return;
+
+            gs_letters.push(letter);
+            if (arra.includes(letter)) {
+                updateWordDisplay();
+                if (!arra.some(letter => !gs_letters.includes(letter))) {
+                    updateMessage('Поздравляем, Вы выиграли! Игорь повесился');
+                }
+            } else {
+                remainingAttempts--;
+                updateStickman();
+                if (remainingAttempts <= 0) {
+                    updateMessage(`Вы проиграли! все конечности игоря повесились. Загаданное слово было "${word}".`);
+                } else {
+                    updateMessage(`Неверно! Осталось попыток: ${remainingAttempts}`);
+                }
+            }
+        }
+            function updateWordDisplay() {
+                const display = arra.map(letter => (gs_letters.includes(letter) ? letter : '_')).join(' ');
+                document.getElementById('word').textContent = display;
+            }
+
+            function updateMessage(message) {
+                document.getElementById('message').textContent = message;
+            }
+
+            function updateStickman() {
+                const parts = ['head', 'body', 'left-arm', 'right-arm', 'left-leg', 'right-leg'];
+                for (let i = 0; i < 6 - remainingAttempts; i++) {
+                    document.getElementById(parts[i]).style.display = 'block';
+                }
+            }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            updateWordDisplay();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+}
+#word {
+    font-size: 24px;
+    letter-spacing: 2px;
+}
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+}
+#input-container {
+    margin-top: 20px;
+}
+#input-container input {
+    font-size: 16px;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+}
+#input-container button {
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+}
+#stickman {
+    margin-top: 20px;
+    width: 100px;
+    height: 200px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+#stickman div {
+    position: absolute;
+    background-color: black;
+}
+#head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    top: 10px;
+    left: 30px;
+}
+#body {
+    width: 10px;
+    height: 60px;
+    top: 50px;
+    left: 45px;
+}
+#left-arm {
+    width: 10px;
+    height: 40px;
+    top: 50px;
+    left: 35px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
+#right-arm {
+    width: 10px;
+    height: 40px;
+    top: 50px;
+    left: 55px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
+#left-leg {
+    width: 10px;
+    height: 40px;
+    top: 110px;
+    left: 35px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
+#right-leg {
+    width: 10px;
+    height: 40px;
+    top: 110px;
+    left: 55px;
+    transform: rotate(-45deg);
+    transform-origin: top right;
+}
