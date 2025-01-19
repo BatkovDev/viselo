@@ -82,3 +82,11 @@ body {
     transform: rotate(-45deg);
     transform-origin: top right;
 }
+
+.ap {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 4px 8px;
+    background-color: #fff;
+}
