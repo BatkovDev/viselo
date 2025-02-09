@@ -5,6 +5,8 @@
   "short_name": "viselo_bqtk0vdev",
   "id": "123432",
   "description": "12321",
+  "start_url": "https://batkovdev.github.io/viselo/",
+  "dir": "ltr",
   "icons": [
     {
       "src": "android/android-launchericon-192-192.png",
